@@ -19,9 +19,50 @@ const FormularioPelicula = ({ onAgregarPelicula }) => {
       };
 
   return (
-    <>
-      
-    </>
+    <Card>
+      <Card.Header>Llenar el formulario para agregar una película</Card.Header>
+      <Card.Body>
+        <Form>
+          <Form.Group controlId="formNombre">
+            <Form.Label>Nombre</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Nombre de la película"
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formDescripcion">
+            <Form.Label>Descripción</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              placeholder="Descripción de la película"
+              value={descripcion}
+              onChange={(e) => setDescripcion(e.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formGenero">
+            <Form.Label>Género</Form.Label>
+            <Form.Control
+              as="select"
+              value={genero}
+              onChange={(e) => setGenero(e.target.value)}
+            >
+              <option value="comedia">Comedia</option>
+              <option value="drama">Drama</option>
+              <option value="infantil">Infantil</option>
+            </Form.Control>
+          </Form.Group>
+
+          <Button className="mt-3" variant="primary" onClick={handleEnviar}>
+            Enviar
+          </Button>
+        </Form>
+      </Card.Body>
+    </Card>
   );
 };
 
