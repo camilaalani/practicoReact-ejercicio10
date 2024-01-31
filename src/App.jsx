@@ -12,6 +12,19 @@ const App = () => {
     setPeliculas(peliculasGuardadas);
   }, []);
 
+  const handleAgregarPelicula = (nuevaPelicula) => {
+    setPeliculas((prevPeliculas) => [...prevPeliculas, nuevaPelicula]);
+    const peliculasGuardadas = JSON.parse(localStorage.getItem("peliculas")) || [];
+    localStorage.setItem("peliculas", JSON.stringify([...peliculasGuardadas, nuevaPelicula]));
+  };
+
+  const handleBorrarPelicula = (index) => {
+    const peliculasActualizadas = [...peliculas];
+    peliculasActualizadas.splice(index, 1);
+    localStorage.setItem("peliculas", JSON.stringify(peliculasActualizadas));
+    setPeliculas(peliculasActualizadas);
+  };
+
   return (
     <>
       
