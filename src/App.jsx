@@ -26,9 +26,16 @@ const App = () => {
   };
 
   return (
-    <>
-      
-    </>
+    <Container className="my-4">
+      <Row>
+        <Col md={6}>
+          <FormularioPelicula onAgregarPelicula={handleAgregarPelicula} />
+        </Col>
+        <Col md={6}>
+          <ListaPeliculas peliculas={peliculas} onBorrarPelicula={handleBorrarPelicula} />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
